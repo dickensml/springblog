@@ -1,10 +1,13 @@
 package com.example.codeup.springblog;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 
 //        method	url	        description
@@ -15,16 +18,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class PostController {
 
-    @GetMapping("/posts")
+    @GetMapping("/index")
     @ResponseBody
-    public String posts() {
-        return "posts index page";
+    public String posts(Model vModel) {
+        List<posts> postList
+        return "index";
     }
 
-    @GetMapping("/posts/{id}")
+    @GetMapping("/show")
     @ResponseBody
-    public String getPosts(@PathVariable long id) {
-        return "view an individual post";
+    public String getPosts(@PathVariable Model vModel) {
+        vModel.addAttribute("posts", "First entry");
+        return "show";
     }
 
     @GetMapping("/posts/create")
