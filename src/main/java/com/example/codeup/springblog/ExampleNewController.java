@@ -27,6 +27,29 @@ public class ExampleNewController {
         return "search-results";
     }
 
+    @GetMapping("/citysearch")
+    public String returnCitySearchForm() {
+     return "city-search";
+    }
+
+    @PostMapping("/citysearch")
+    public String returnCitySearchResults(@RequestParam String city, Model vModel) {
+        vModel.addAttribute("city", city);
+        return "city-results";
+    }
+
+    @GetMapping ("/login")
+    public String loginForm() {
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String processLogin() {
+//      authenticate user
+        return "redirect/:";
+    }
+
+
 
 }
 
