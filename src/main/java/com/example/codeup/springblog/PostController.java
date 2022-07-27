@@ -7,36 +7,40 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+//        method	url	        description
+//        GET	/posts	        posts index page
+//        GET	/posts/{id}	    view an individual post
+//        GET	/posts/create	view the form for creating a post
+//        POST	/posts/create	create a new post
 @Controller
-    public class PostController {
+public class PostController {
 
-        @GetMapping("/posts")
-        @ResponseBody
-        public String posts(){
-            return "posts index page";
-        }
+    @GetMapping("/posts")
+    @ResponseBody
+    public String posts() {
+        return "posts index page";
+    }
 
-        @GetMapping("/posts/{id}")
-        @ResponseBody
-        public String postID(@PathVariable int id) {
-            return "view an individual post";
-        }
+    @GetMapping("/posts/{id}")
+    @ResponseBody
+    public String getPosts(@PathVariable long id) {
+        return "view an individual post";
+    }
 
-        @GetMapping("/posts/create")
-        @ResponseBody
-        public String create() {
-            return "view the form for creating a post";
-        }
+    @GetMapping("/posts/create")
+    @ResponseBody
+    public String getCreatePostForm() {
+        return "view the form for creating a post";
+    }
 
     @PostMapping("/posts/create")
     @ResponseBody
-    public String postCreate() {
-            return "create a new post";
+    public String savePost() {
+        return "create a new post";
     }
 
 
-
-    }
+}
 
 
 
