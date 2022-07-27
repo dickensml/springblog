@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -18,11 +20,15 @@ import java.util.List;
 @Controller
 public class PostController {
 
-    @GetMapping("/index")
+    @GetMapping("/posts")
     @ResponseBody
-    public String posts(Model vModel) {
-        List<posts> postList
-        return "index";
+    public String allPosts(Model vModel) {
+        List<Post> postList = new ArrayList<>(Arrays.asList(
+            new Post("Entry Two"),
+            new Post("Entry Three")
+        ));
+        vModel.addAttribute("posts", postList);
+        return "/posts/index";
     }
 
     @GetMapping("/show")
