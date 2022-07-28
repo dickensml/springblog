@@ -1,5 +1,6 @@
-package com.example.codeup.springblog;
+package com.example.codeup.springblog.controller;
 
+import com.example.codeup.springblog.model.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,35 +8,35 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 
-//        method	url	        description
-//        GET	/posts	        posts index page
-//        GET	/posts/{id}	    view an individual post
-//        GET	/posts/create	view the form for creating a post
-//        POST	/posts/create	create a new post
+
 @Controller
 public class PostController {
 
     @GetMapping("/posts")
-    @ResponseBody
     public String allPosts(Model vModel) {
-        List<Post> postList = new ArrayList<>(Arrays.asList(
+        List<Post> posts = new ArrayList<>(Arrays.asList(
             new Post("Entry Two"),
             new Post("Entry Three")
         ));
-        vModel.addAttribute("posts", postList);
-        return "/posts/index";
+        vModel.addAttribute("posts", posts);
+        return "posts/index";
     }
 
-    @GetMapping("/show")
-    @ResponseBody
-    public String getPosts(@PathVariable Model vModel) {
-        vModel.addAttribute("posts", "First entry");
-        return "show";
+    @GetMapping("/posts/{id}")
+    public String getPost(@PathVariable long id, Model vModel) {
+        Post post = new Post(
+        1,
+            "Post number " + id,
+            "Things about the post..."
+        );
+        vModel.addAttribute("post", post);
+        return "posts/show";
     }
 
     @GetMapping("/posts/create")

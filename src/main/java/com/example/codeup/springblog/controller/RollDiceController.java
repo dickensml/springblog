@@ -1,5 +1,4 @@
-package com.example.codeup.springblog;
-
+package com.example.codeup.springblog.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +10,9 @@ import java.util.Random;
 @Controller
 public class RollDiceController {
 
-    @GetMapping("/rolldice}")
-        public String guessNumber() {
+    @GetMapping("/rolldice")
+        public String pickNumber() {
             return "roll-dice";
-
     }
 
     @GetMapping("/diceresult")

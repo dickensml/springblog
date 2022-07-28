@@ -6,13 +6,25 @@
 </head>
 <body>
 
+<nav th:replace="partials/partials.html :: nav"></nav>
+
 <h2>Listing of all posts</h2>
 
-<ul>
-    <li th:each="post : ${posts}">
-        <p th:text="${post.title}"></p>
-    </li>
-</ul>
+<main></main>
+
+    <article th:each="post : ${posts}">
+        <h3 th:text="${post.title}"></h3>
+
+        <p th:text="${post.body}"></p>
+
+
+    </article>
+
+</main>
+
+
+
+<nav th:replace="partials/partials.html :: footer"></nav>
 
 </body>
 </html>

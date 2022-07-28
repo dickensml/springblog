@@ -1,13 +1,16 @@
-package com.example.codeup.springblog;
+package com.example.codeup.springblog.model;
 
-public class Posts {
+public class Post {
 
     private String title;
     private String body;
 
-    public Posts(String title, String body) {
+    public Post(String title) {
         this.title = title;
-        this.body = body;
+
+    }
+
+    public Post(long id, String s, String s1) {
     }
 
     public String getTitle() {

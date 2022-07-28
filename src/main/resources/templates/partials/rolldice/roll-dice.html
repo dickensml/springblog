@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roll of the Dice!</title>
+</head>
+<body>
+
+<nav th:replace="partials/partials.html :: nav"></nav>
+
+<h1>Beat the Dice Game:</h1>
+
+<h2>Please pick a number for the Dice Roll...</h2>
+<h3><a th:href="@{/rolldice/{number}(number=1)}"> 1 </a></h3>
+<h3><a th:href="@{/rolldice/{number}(number=2)}"> 2 </a></h3>
+<h3><a th:href="@{/rolldice/{number}(number=3)}"> 3</a></h3>
+<h3><a th:href="@{/rolldice/{number}(number=4)}"> 4</a></h3>
+<h3><a th:href="@{/rolldice/{number}(number=5)}"> 5</a></h3>
+<h3><a th:href="@{/rolldice/{number}(number=6)}"> 6</a></h3>
+
+
+<nav th:replace="partials/partials.html :: footer"></nav>
+
+</body>
+</html>
