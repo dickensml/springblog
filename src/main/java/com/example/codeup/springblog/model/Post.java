@@ -24,6 +24,10 @@ public class Post {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    private User user;
+
     public Post(String title) {
         this.id = id;
         this.title = title;
