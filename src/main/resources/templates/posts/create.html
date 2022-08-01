@@ -10,7 +10,14 @@
 
 <hs>Write a New Blog Entry</hs>
 
-
+<form th:action="@{/posts/create}" th:method="post">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" placeholder="Enter title">
+    <br>
+    <label for="body">Content</label>
+    <textarea name="body" id="body" cols="30" rows="10" placeholder="Enter Content"></textarea>
+    <button>Submit</button>
+</form>
 
 <nav th:replace="partials/partials.html :: footer"></nav>
 

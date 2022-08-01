@@ -2,6 +2,7 @@ package com.example.codeup.springblog.controller;
 
 import com.example.codeup.springblog.model.Post;
 import com.example.codeup.springblog.repositories.PostRepository;
+import com.example.codeup.springblog.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,7 @@ import java.util.List;
 public class PostController {
     @Autowired
     private PostRepository postDao;
+    private UserRepository userDao;
 
     @GetMapping("/posts")
     public String allPosts(Model vModel) {
