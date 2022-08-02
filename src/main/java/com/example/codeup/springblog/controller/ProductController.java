@@ -5,7 +5,9 @@ import com.example.codeup.springblog.repositories.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,14 +29,16 @@ public class ProductController {
 //        pass products to view
         vModel.addAttribute("products", productList);
         return "products/index";
+
+
     }
 //-----create a record with JPA------
-    @GetMapping("/products/create/test")
-    public  String createProducts() {
-        Product product = new Product("Pug", 20000);
-        productDao.save(product);
-        return ("redirect:/products");
-    }
+@PostMapping("/products/create")
+// Model Attribute is the object that is submitted from the form.
+public String submitProduct(@ModelAttribute Product product) {
+    productDao.save(product);
+    return "redirect:/products";
+}
 
 // -----delete a record with JPA --------
 @GetMapping("products/delete/test")

@@ -1,15 +1,13 @@
 package com.example.codeup.springblog.controller;
 
 import com.example.codeup.springblog.model.Post;
+import com.example.codeup.springblog.model.User;
 import com.example.codeup.springblog.repositories.PostRepository;
 import com.example.codeup.springblog.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParsePosition;
 import java.util.ArrayList;
@@ -46,15 +44,17 @@ public class PostController {
     }
 
     @GetMapping("/posts/create")
-
-    public String getCreatePostForm() {
-        return "view the form for creating a post";
+    public String createPost() {
+        return "posts/create";
     }
 
     @PostMapping("/posts/create")
-
-    public String savePost() {
-        return "create a new post";
+    public String savePost(@RequestParam String title, @RequestParam String body) {
+        User user = userDao.findById(1L).get();
+        Post post = new Post(title, body);
+        post.setUser(user);
+        postDao.save(post);
+        return "redirect:/posts";
     }
 
 

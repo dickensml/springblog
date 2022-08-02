@@ -34,13 +34,14 @@ public class Post {
         this.body = body;
 
     }
-
     public Post(long id, String s, String s1) {
     }
-
     public Post() {
-
     }
+
+    public Post(String title, String body) {
+    }
+
     public String getTitle() {
         return title;
     }
@@ -55,5 +56,8 @@ public class Post {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public void setUser(User user) {
     }
 }
