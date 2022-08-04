@@ -59,7 +59,7 @@ public class PostController {
     @PostMapping("/posts/create")
     public String savePost(@ModelAttribute Post newPost) {
         User user = userDao.findById(1L).get();
-        (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         newPost.setUser(principal);
         postDao.save(newPost);
         emailService.prepareAndSend(newPost, "You created a new post!");
