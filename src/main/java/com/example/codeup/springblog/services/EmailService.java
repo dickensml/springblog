@@ -23,16 +23,15 @@ public class EmailService {
         msg.setFrom(from);
         msg.setTo(post.getUser().getEmail());
         msg.setSubject(subject);
+        String body = "You have posted to your Springblog! The title of your post is " + post.getTitle() + ". If you did not submit a new post, please contact customer support.";
         msg.setText(body);
 
         try{
             this.emailSender.send(msg);
         }
-        catch (MailException mex) {
-            // simply log it and go on...
-            System.err.println(mex.getMessage());
+        catch(MailException mex) {
+            System.out.println(mex.getMessage());
         }
     }
-
 
 }
