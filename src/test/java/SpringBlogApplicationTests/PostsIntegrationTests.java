@@ -1,8 +1,5 @@
 package SpringBlogApplicationTests;
 
-package com.example.codeup.gospringblog;
-
-
 import com.example.codeup.springblog.SpringblogApplication;
 import com.example.codeup.springblog.model.Post;
 import com.example.codeup.springblog.model.User;
