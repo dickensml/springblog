@@ -31,8 +31,8 @@ public class PostController {
     @GetMapping("/posts")
     public String allPosts(Model vModel) {
         List<Post> posts = new ArrayList<>(Arrays.asList(
-            new Post("Entry Two"),
-            new Post("Entry Three")
+//            new Post("Entry Two"),
+//            new Post("Entry Three")
         ));
         vModel.addAttribute("posts", posts);
         return "posts/index";

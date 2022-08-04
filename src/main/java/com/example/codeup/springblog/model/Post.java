@@ -18,7 +18,7 @@ public class Post {
     @Column(columnDefinition = "INT")
     private long id;
 
-    @Column(length = 100, nullable = false)
+    @Column(nullable = false)
     private String title;
 
     @Column(nullable = false, columnDefinition = "TEXT")
@@ -28,28 +28,24 @@ public class Post {
     @JoinColumn (name = "user_id")
     private User user;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Post(String title) {
+    public Post(long id, String title, String body) {
         this.id = id;
         this.title = title;
         this.body = body;
-
-    }
-    public Post(long id, String s, String s1) {
     }
     public Post() {
     }
 
     public Post(String title, String body) {
+        this.title = title;
+        this.body = body;
     }
-
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
     public String getTitle() {
         return title;
     }
@@ -71,5 +67,12 @@ public class Post {
     }
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" + "id=" + id + ", title='" + title + '\'' +
+                ", body='" + body + '\'' + ", user=" + user +
+                '}';
     }
 }
