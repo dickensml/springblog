@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Add a blog post</title>
+</head>
+<body>
+
+<nav th:replace="partials/partials.html :: nav"></nav>
+
+<hs>Write a New Blog Entry</hs>
+
+<main class="container">
+    <form th:action="@{/posts/create}" th:method="POST" th:object="${newPost}"">
+    <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input th:field="*{title}" class="foor-control" type="text" id="title" name="title" placeholder="Enter title">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="body">Content</label>
+        <textarea th:fielc="*{body}" type="text" class="form-control" name="body" id="body" placeholder="Enter Content"></textarea>
+    </div>
+
+    <div class="d-grid">
+        <button>Post It</button>
+    </div>
+    </form>
+</main>
+<nav th:replace="partials/partials.html :: footer"></nav>
+
+</body>
+</html>

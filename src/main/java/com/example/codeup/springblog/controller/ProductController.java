@@ -29,8 +29,13 @@ public class ProductController {
 //        pass products to view
         vModel.addAttribute("products", productList);
         return "products/index";
+    }
 
-
+    @GetMapping("/products/create")
+    // Model is the data model we want to pass to the html page.
+    public String createProducts(Model model) {
+        model.addAttribute("newProduct", new Product());
+        return "products/create";
     }
 //-----create a record with JPA------
 @PostMapping("/products/create")
@@ -51,8 +56,34 @@ public String submitProduct(@ModelAttribute Product product) {
     
     @GetMapping("/products/test/{id}")
     public String getProduct(@PathVariable long id) {
+        Product p = productDao.findById(id).get();
         System.out.println(productDao.findById(id).get());
         return "redirect:/products";
     }
+
+//    @GetMapping("/derived/1")
+//    @ResponseBody
+//    public List<Product> getProductsAfterId() {
+//        return productDao.getProductsByIdAfter(6L);
+//    }
+//
+//    @GetMapping("/derived/2")
+//    @ResponseBody
+//    public List<Product> getBirdProducts() {
+//        return productDao.getProductByNameEndsWithIgnoreCase("bird");
+//    }
+//
+//    @GetMapping("/derived/3")
+//    @ResponseBody
+//    public Product getProductByPrice() {
+//        return productDao.getFirstByPriceInCents(55);
+//    }
+//
+//    @GetMapping("/test/jpql")
+//    @ResponseBody
+//    public List<String> getProductFirstName() {
+//        return productDao.getProductNamesNative();
+//    }
+
 
 }

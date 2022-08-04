@@ -8,17 +8,25 @@
 
 <nav th:replace="partials/partials.html :: nav"></nav>
 
-<hs>Write a New Blog Entry</hs>
+<hs>Edit a Blog Entry</hs>
 
-<form th:action="@{/posts/create}" th:method="post">
-    <label for="title">Title</label>
-    <input type="text" id="title" name="title" placeholder="Enter title">
-    <br>
-    <label for="body">Content</label>
-    <textarea name="body" id="body" cols="30" rows="10" placeholder="Enter Content"></textarea>
-    <button>Post It</button>
-</form>
+<main class="container">
+    <form th:action="@{/posts/{id}/edit (id = ${postToEdit.id})}" th:method="POST" th:object="${postToEdit}">
+        <div class="mb-3">
+            <label class="form-label" for="title">Title</label>
+            <input th:field="*{title}" class="form-control" type="text" id="title" name="title" placeholder="Enter title">
+        </div>
 
+        <div class="mb-3">
+        <label class="form-label" for="body">Content</label>
+        <textarea th:fielc="*{body}" type="text" class="form-control" name="body" id="body" placeholder="Enter Content"></textarea>
+        </div>
+
+        <div class="d-grid">
+        <button>Edit post</button>
+        </div>
+    </form>
+</main>
 <nav th:replace="partials/partials.html :: footer"></nav>
 
 </body>
