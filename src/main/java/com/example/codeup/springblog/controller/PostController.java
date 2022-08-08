@@ -29,26 +29,18 @@ public class PostController {
     }
 
     @GetMapping("/posts")
-    public String allPosts(Model vModel) {
-        List<Post> posts = new ArrayList<>(Arrays.asList(
-//            new Post("Entry Two"),
-//            new Post("Entry Three")
-        ));
+    public String getPosts(Model vModel) {
+        List<Post> posts = postDao.findAll();
         vModel.addAttribute("posts", posts);
         return "posts/index";
     }
 
     @GetMapping("/posts/{id}")
     public String getPost(@PathVariable long id, Model vModel) {
-        Post post = new Post(
-        1,
-            "Post number " + id,
-            "Things about the post..."
-        );
+        Post post = postDao.findById(id).get();
         vModel.addAttribute("post", post);
         return "posts/show";
     }
-
     @GetMapping("/posts/create")
     // Model is the data model we want to pass to the html page.
     public String createPost(Model model) {

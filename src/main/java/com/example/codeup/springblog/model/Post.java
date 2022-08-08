@@ -17,17 +17,13 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INT")
     private long id;
-
     @Column(nullable = false)
     private String title;
-
     @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
-
     @ManyToOne
     @JoinColumn (name = "user_id")
     private User user;
-
     public Post(long id, String title, String body) {
         this.id = id;
         this.title = title;
@@ -35,7 +31,6 @@ public class Post {
     }
     public Post() {
     }
-
     public Post(String title, String body) {
         this.title = title;
         this.body = body;

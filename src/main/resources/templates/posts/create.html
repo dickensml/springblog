@@ -19,7 +19,7 @@
 
         <div class="mb-3">
         <label class="form-label" for="body">Content</label>
-        <textarea th:fielc="*{body}" type="text" class="form-control" name="body" id="body" placeholder="Enter Content"></textarea>
+        <textarea th:field="*{body}" type="text" class="form-control" name="body" id="body" placeholder="Enter Content"></textarea>
         </div>
 
         <div class="d-grid">
@@ -27,7 +27,7 @@
         </div>
     </form>
 </main>
-<nav th:replace="partials/partials.html :: footer"></nav>
+<footer th:replace="partials/partials.html :: footer"></footer>
 
 </body>
 </html>
