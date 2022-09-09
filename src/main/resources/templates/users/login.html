@@ -5,7 +5,9 @@
     <title>Log In</title>
 </head>
 <body>
-<h1>Log In</h1>
+<nav th:replace="partials/partials.html :: nav"></nav>
+
+<h2>Log In</h2>
 <div th:if="${param.error}">
     Invalid Username and Password.
 </div>

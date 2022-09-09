@@ -5,6 +5,9 @@
     <title>Sign up</title>
 </head>
 <body>
+
+<nav th:replace="partials/partials.html :: nav"></nav>
+
 <h1>Create a Springblog account</h1>
     <form th:action="@{/sign-up}" method="POST" th:object="${user}">
         <label for="username">Username</label>
