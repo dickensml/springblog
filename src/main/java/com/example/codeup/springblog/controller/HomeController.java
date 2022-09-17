@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 
-        @GetMapping("/home")
+        @GetMapping("/")
         @ResponseBody
         public String landing() {
-            return ("/home");
+            return ("/index");
         }
 
     }
